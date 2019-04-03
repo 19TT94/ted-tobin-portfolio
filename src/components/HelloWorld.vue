@@ -51,25 +51,26 @@ export default {
 	},
 
   methods: {
-		toggleScatter(e) {
+		toggleScatter() {
 			// toggle scatter boolean
 			this.scatter = !this.scatter
+			// get absolutly positioned letters
+			let elem = document.getElementsByClassName('letter-mut');
 			if(this.scatter) {
 				// set position of each letter
-				this.text.forEach((item)=> {
-          console.log(item.elem)
+				this.text.forEach((item,index)=> {
 					// psuedo random position ~ seed with window width/height
 					var randLeft = Math.floor(Math.random() * document.body.clientWidth)
 					var randTop = Math.floor(Math.random() * document.body.clientHeight)
 					// move letter
-					item.elem.style.left = randLeft + "px"
-					item.elem.style.top = randTop + "px"
+					elem[index].style.left = randLeft + "px"
+					elem[index].style.top = randTop + "px"
 				})
 			} else {
 				// reset letter position
-				this.text.forEach((item)=> {
-          item.elem.style.left = item.pos.x + "px"
-					item.elem.style.top = item.pos.y + "px"
+				this.text.forEach((item,index)=> {
+					elem[index].style.left = item.pos.x + "px"
+					elem[index].style.top = item.pos.y + "px"
 				})
 			}
 		}
