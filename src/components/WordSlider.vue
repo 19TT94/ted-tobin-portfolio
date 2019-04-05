@@ -2,7 +2,7 @@
 
 	<div class="word-slider">
     <div class="word-wrapper">
-  		<p class="word" v-for="quote in quotes">
+  		<p class="word" :id="quotes[index]" v-for="quote,index in quotes">
   			<span class="letter" v-for="letter in quote">{{letter}}</span>
   		</p>
   	</div>
@@ -18,14 +18,14 @@ export default {
 
   data() {
 		return {
-			scatter: false,
 			quote: "word",
       quotes: [
         "word1",
         "word2",
         "word3",
         "word4"
-      ]
+      ],
+      current: 0
 		};
 	},
 
@@ -44,33 +44,50 @@ export default {
 
   methods: {
     toggleScatter() {
-			// toggle scatter boolean
-			this.scatter = !this.scatter
 			// get absolutly positioned letters
 			let elems = document.getElementsByClassName('letter')
-			if(this.scatter) {
-        for(var index=0; index < elems.length; index++) {
-          var randLeft = this.random(document.body.clientWidth)
-					var randTop = this.random(document.body.clientHeight)
-          elems[index].style.transform = "translate(" + randLeft + "px," + randTop + "px)"
-        }
-			} else {
-        for(var index=0; index < elems.length; index++) {
-          var randLeft = this.random(document.body.clientWidth)
-					var randTop = this.random(document.body.clientHeight)
-          elems[index].style.transform = "translate(0)"
-        }
-			}
+      // randomly position all words
+      for(var index=0; index < elems.length; index++) {
+        var randLeft = this.random(document.body.clientWidth)
+				var randTop = this.random(document.body.clientHeight)
+        elems[index].style.transform = "translate(" + randLeft + "px," + randTop + "px)"
+      }
+
+      // set active element
+      let active = document.getElementById(this.quotes[this.current]).children;
+      console.log(active.children);
+      for(var index=0; index < active.length; index++) {
+        active[index].style.transform = "translate(0)"
+      }
+
+      //update current
+      this.incrementCurrent()
 		},
 		random(max) {
 			// random value based on max
-			let value = Math.floor(Math.random() * max/2);
+			let value = Math.floor(Math.random() * max/2)
 			// return +/- based on seed
-			return Math.random() < 0.5 ? -value : value;
+			return Math.random() < 0.5 ? -value : value
 		},
     getLetters(word) {
       return word.split("")
-    }
+    },
+    /*@returns incremented current slide index */
+		incrementCurrent() {
+			if(this.current < this.quotes.length - 1) {
+        this.current = this.current + 1
+      } else {
+        this.current = 0;
+      }
+		},
+    /*@returns decremented current slide index */
+		decrementCurrent() {
+      if(this.current < this.quotes.length - 1) {
+        this.current = this.current - 1
+      } else {
+        this.current = this.quotes.length
+      }
+		}
 	}
 }
 </script>
