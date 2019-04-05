@@ -2,8 +2,8 @@
 
 	<div class="word-slider">
     <div class="word-wrapper">
-  		<p class="word">
-  			<span class="letter" v-for="letter in letters">{{letter}}</span>
+  		<p class="word" v-for="quote in quotes">
+  			<span class="letter" v-for="letter in quote">{{letter}}</span>
   		</p>
   	</div>
 
@@ -20,9 +20,20 @@ export default {
 		return {
 			scatter: false,
 			quote: "word",
-      text: []
+      quotes: [
+        "word1",
+        "word2",
+        "word3",
+        "word4"
+      ]
 		};
 	},
+
+  mounted() {
+    this.quotes.forEach((quote,index)=> {
+      quote = this.quote.split("")
+    })
+  },
 
 	computed: {
 		/*@returns array of letters from word data */
@@ -36,21 +47,19 @@ export default {
 			// toggle scatter boolean
 			this.scatter = !this.scatter
 			// get absolutly positioned letters
-			let elem = document.getElementsByClassName('letter')
+			let elems = document.getElementsByClassName('letter')
 			if(this.scatter) {
-				// set position of each letter
-				this.letters.forEach((item,index)=> {
-					// psuedo random position ~ seed with window with half width/height
-					var randLeft = this.random(document.body.clientWidth)
+        for(var index=0; index < elems.length; index++) {
+          var randLeft = this.random(document.body.clientWidth)
 					var randTop = this.random(document.body.clientHeight)
-					// move letter
-					elem[index].style.transform = "translate(" + randLeft + "px," + randTop + "px)"
-				})
+          elems[index].style.transform = "translate(" + randLeft + "px," + randTop + "px)"
+        }
 			} else {
-				// reset letter position
-				this.letters.forEach((item,index)=> {
-					elem[index].style.transform = "translate(0)"
-				})
+        for(var index=0; index < elems.length; index++) {
+          var randLeft = this.random(document.body.clientWidth)
+					var randTop = this.random(document.body.clientHeight)
+          elems[index].style.transform = "translate(0)"
+        }
 			}
 		},
 		random(max) {
@@ -58,7 +67,10 @@ export default {
 			let value = Math.floor(Math.random() * max/2);
 			// return +/- based on seed
 			return Math.random() < 0.5 ? -value : value;
-		}
+		},
+    getLetters(word) {
+      return word.split("")
+    }
 	}
 }
 </script>
