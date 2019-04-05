@@ -7,7 +7,7 @@
   		</p>
   	</div>
 
-  	<button @click="toggleScatter">Scatter</button>
+  	<button @click="scatter">Scatter</button>
   </div>
 
 </template>
@@ -33,6 +33,7 @@ export default {
     this.quotes.forEach((quote,index)=> {
       quote = this.quote.split("")
     })
+    this.scatter();
   },
 
 	computed: {
@@ -43,7 +44,7 @@ export default {
 	},
 
   methods: {
-    toggleScatter() {
+    scatter() {
 			// get absolutly positioned letters
 			let elems = document.getElementsByClassName('letter')
       // randomly position all words
@@ -55,7 +56,7 @@ export default {
 
       // set active element
       let active = document.getElementById(this.quotes[this.current]).children;
-      console.log(active.children);
+      // set each active letter to position 0
       for(var index=0; index < active.length; index++) {
         active[index].style.transform = "translate(0)"
       }
@@ -103,6 +104,10 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.word {
+  position: absolute;
 }
 
 .letter {
