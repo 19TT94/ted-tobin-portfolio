@@ -3,7 +3,7 @@
 	<div class="word-slider">
     <div class="word-wrapper">
   		<p class="word" :id="quotes[index]" v-for="quote,index in quotes">
-  			<span class="letter" v-for="letter in quote">{{letter}}</span>
+  			<span class="letter" v-for="letter in quote" v-html="letter"></span>
   		</p>
   	</div>
 
@@ -18,9 +18,8 @@ export default {
 
   data() {
 		return {
-			quote: "word",
       quotes: [
-        "word1",
+        "New model original parts",
         "word2",
         "word3",
         "word4"
@@ -30,18 +29,12 @@ export default {
 	},
 
   mounted() {
+    // split words into letters
     this.quotes.forEach((quote,index)=> {
-      quote = this.quote.split("")
+      quote = quote.split("")
     })
     this.scatter();
   },
-
-	computed: {
-		/*@returns array of letters from word data */
-		letters() {
-			return this.quote.split("")
-		}
-	},
 
   methods: {
     scatter() {
@@ -53,17 +46,18 @@ export default {
 				var randTop = this.random(document.body.clientHeight)
         elems[index].style.transform = "translate(" + randLeft + "px," + randTop + "px)"
       }
-
+      this.setActive()
+		},
+    setActive() {
       // set active element
       let active = document.getElementById(this.quotes[this.current]).children;
       // set each active letter to position 0
       for(var index=0; index < active.length; index++) {
         active[index].style.transform = "translate(0)"
       }
-
       //update current
       this.incrementCurrent()
-		},
+    },
 		random(max) {
 			// random value based on max
 			let value = Math.floor(Math.random() * max/2)
@@ -114,6 +108,7 @@ export default {
   position: relative;
 	display: inline-block;
 	transition: all ease 0.5s;
+  min-width: 5px;
 }
 
 button {
