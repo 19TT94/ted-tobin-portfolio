@@ -7,7 +7,10 @@
   		</p>
   	</div>
 
-  	<button @click="scatter">Scatter</button>
+  	<div class="controls">
+      <button class="prev" @click="prev">Prev</button>
+      <button class="next" @click="next">Next</button>
+    </div>
   </div>
 
 </template>
@@ -19,10 +22,14 @@ export default {
   data() {
 		return {
       quotes: [
+        "Every generation has a story",
         "New model original parts",
-        "word2",
-        "word3",
-        "word4"
+        "A whole new kind of animal",
+        "Question reality. Change your destiny",
+        "Hero…Legend…King",
+        "Anyone can save the galaxy…once.",
+        "Bring the adventure…to life",
+        "Don’t let anyone spoil this."
       ],
       current: 0
 		};
@@ -37,7 +44,29 @@ export default {
   },
 
   methods: {
-    scatter() {
+    /*@returns incremented current slide index */
+		next() {
+      // increment current
+      this.current = this.current + 1
+      // check for max
+			if(this.current === this.quotes.length - 1) {
+        this.current = 0
+      }
+      // set active slide and scatter others
+      this.scatter()
+		},
+    /*@returns decremented current slide index */
+		prev() {
+      // decrement current
+      this.current = this.current - 1
+      // check for min
+			if(this.current === 0) {
+        this.current = this.quotes.length
+      }
+      // set active slide and scatter others
+      this.scatter()
+		},
+    scatter(control) {
 			// get absolutly positioned letters
 			let elems = document.getElementsByClassName('letter')
       // randomly position all words
@@ -46,18 +75,14 @@ export default {
 				var randTop = this.random(document.body.clientHeight)
         elems[index].style.transform = "translate(" + randLeft + "px," + randTop + "px)"
       }
-      this.setActive()
-		},
-    setActive() {
       // set active element
-      let active = document.getElementById(this.quotes[this.current]).children;
+      let active = document.getElementById(this.quotes[this.current]).children
       // set each active letter to position 0
       for(var index=0; index < active.length; index++) {
         active[index].style.transform = "translate(0)"
+        active[index].className += " active"
       }
-      //update current
-      this.incrementCurrent()
-    },
+		},
 		random(max) {
 			// random value based on max
 			let value = Math.floor(Math.random() * max/2)
@@ -66,23 +91,7 @@ export default {
 		},
     getLetters(word) {
       return word.split("")
-    },
-    /*@returns incremented current slide index */
-		incrementCurrent() {
-			if(this.current < this.quotes.length - 1) {
-        this.current = this.current + 1
-      } else {
-        this.current = 0;
-      }
-		},
-    /*@returns decremented current slide index */
-		decrementCurrent() {
-      if(this.current < this.quotes.length - 1) {
-        this.current = this.current - 1
-      } else {
-        this.current = this.quotes.length
-      }
-		}
+    }
 	}
 }
 </script>
@@ -98,6 +107,8 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+  background: black;
 }
 
 .word {
@@ -109,14 +120,26 @@ export default {
 	display: inline-block;
 	transition: all ease 0.5s;
   min-width: 5px;
+
+  color: #CCC7C7;
+  opacity: 0.5;
 }
 
-button {
+.active {
+  font-size: 20px;
+
+  color: #F9F4F4;
+  opacity: 1;
+}
+
+.controls {
 	position: absolute;
 	bottom: 10%;
   left: 0;
   right: 0;
   margin: 0 auto;
   width: 100px;
+  display: flex;
+  flex-direction: row;
 }
 </style>
