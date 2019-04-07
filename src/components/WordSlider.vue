@@ -46,23 +46,23 @@ export default {
   methods: {
     /*@returns incremented current slide index */
 		next() {
-      // increment current
-      this.current = this.current + 1
       // check for max
 			if(this.current === this.quotes.length - 1) {
         this.current = 0
       }
+      // increment current
+      this.current = this.current + 1
       // set active slide and scatter others
       this.scatter()
 		},
     /*@returns decremented current slide index */
 		prev() {
-      // decrement current
-      this.current = this.current - 1
       // check for min
 			if(this.current === 0) {
         this.current = this.quotes.length
       }
+      // decrement current
+      this.current = this.current - 1
       // set active slide and scatter others
       this.scatter()
 		},
