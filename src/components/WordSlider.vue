@@ -68,19 +68,24 @@ export default {
 		},
     scatter(control) {
 			// get absolutly positioned letters
-			let elems = document.getElementsByClassName('letter')
+			let elems = document.getElementsByClassName("letter")
       // randomly position all words
       for(var index=0; index < elems.length; index++) {
         var randLeft = this.random(document.body.clientWidth)
 				var randTop = this.random(document.body.clientHeight)
         elems[index].style.transform = "translate(" + randLeft + "px," + randTop + "px)"
       }
+      //remove old active
+      let reset = document.getElementsByClassName("active");
+      for(var index=0; index < reset.length; index++) {
+        reset[index].classList.remove("active")
+      }
       // set active element
       let active = document.getElementById(this.quotes[this.current]).children
       // set each active letter to position 0
       for(var index=0; index < active.length; index++) {
         active[index].style.transform = "translate(0)"
-        active[index].className += " active"
+        active[index].classList.add("active")
       }
 		},
 		random(max) {
@@ -123,6 +128,7 @@ export default {
 
   color: #CCC7C7;
   opacity: 0.5;
+  filter: blur(1px);
 }
 
 .active {
@@ -130,6 +136,7 @@ export default {
 
   color: #F9F4F4;
   opacity: 1;
+  filter: blur(0);
 }
 
 .controls {
