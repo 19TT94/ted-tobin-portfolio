@@ -102,6 +102,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+
+@import "@/assets/scss/app.scss"; // global styles
+
 .word-wrapper {
 	position: absolute;
 	top: 0;
@@ -124,6 +127,7 @@ export default {
 	display: inline-block;
 	transition: all ease 0.5s;
   min-width: 5px;
+  font-weight: 400;
 
   color: #CCC7C7;
   opacity: 0.5;
@@ -132,6 +136,7 @@ export default {
 
 .active {
   font-size: 20px;
+  font-weight: 200;
 
   color: #F9F4F4;
   opacity: 1;
