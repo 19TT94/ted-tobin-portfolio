@@ -67,6 +67,10 @@ export default {
       this.scatter()
 		},
     scatter(control) {
+      //remove old active
+      let reset = document.getElementsByClassName("active");
+      // remove active class from html collection
+      while (reset.length) reset[0].classList.remove('active');
 			// get absolutly positioned letters
 			let elems = document.getElementsByClassName("letter")
       // randomly position all words
@@ -74,11 +78,6 @@ export default {
         var randLeft = this.random(document.body.clientWidth)
 				var randTop = this.random(document.body.clientHeight)
         elems[index].style.transform = "translate(" + randLeft + "px," + randTop + "px)"
-      }
-      //remove old active
-      let reset = document.getElementsByClassName("active");
-      for(var index=0; index < reset.length; index++) {
-        reset[index].classList.remove("active")
       }
       // set active element
       let active = document.getElementById(this.quotes[this.current]).children
