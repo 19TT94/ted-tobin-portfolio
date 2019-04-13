@@ -51,12 +51,12 @@ p {
 }
 
 a {
+  color: $white;
   // reset color with variable
-  color: $gold;
   text-decoration: none;
   &.router-link-exact-active {
-	// reset color with variable
-	color: $gold;
+  	// reset color with variable
+    color: $white;
   }
 }
 
@@ -70,6 +70,7 @@ button {
 	font-size: 1.2rem;
 	font-family: $font;
   font-weight: 600;
+  color: $white;
   background: transparent;
   border: 0;
   padding: 0;
@@ -77,8 +78,8 @@ button {
 
 .button {
 	padding: 0.5rem 2rem;
-	border: 1px solid $gold;
-	color: $gold;
+	border: 1px solid $white;
+	color: $white;
 }
 
 ul {

@@ -25,7 +25,7 @@ export default {
         "Every generation has a story",
         "New model original parts",
         "A whole new kind of animal",
-        "Question reality. Change your destiny",
+        "Question reality. Change your destiny.",
         "Hero…Legend…King",
         "Anyone can save the galaxy…once.",
         "Bring the adventure…to life",
@@ -129,7 +129,7 @@ export default {
   min-width: 5px;
   font-weight: 400;
 
-  color: #CCC7C7;
+  color: $gray;
   opacity: 0.5;
   filter: blur(1px);
 }
@@ -138,7 +138,7 @@ export default {
   font-size: 20px;
   font-weight: 200;
 
-  color: #F9F4F4;
+  color: $yellow;
   opacity: 1;
   filter: blur(0);
 }
@@ -149,8 +149,21 @@ export default {
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 100px;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  display: flex;
+
+  .prev {
+    position: absolute;
+  	bottom: 10%;
+    left: 10%;
+  }
+
+  .next {
+    position: absolute;
+  	bottom: 10%;
+    right: 10%;
+  }
 }
 </style>
