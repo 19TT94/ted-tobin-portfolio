@@ -1,0 +1,101 @@
+/* Global Settings */
+
+// Tags
+body {
+  font-size: 16px; // base font size
+  font-family: $font;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 0 0 1rem;
+  font-family: $font;
+  font-weight: 400;
+
+  @media #{$small} {
+    font-size: 2.5rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  padding: 0 0 1rem;
+  font-family: $font;
+  font-weight: 300;
+
+  @media #{$small} {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: 1.2rem;
+  padding: 0 0 1rem;
+  font-family: $font;
+  font-weight: 200;
+
+  @media #{$small} {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  font-weight: 200;
+
+  @media #{$small} {
+    font-size: 1rem;
+  }
+}
+
+a {
+  // reset color with variable
+  color: $gold;
+  text-decoration: none;
+  &.router-link-exact-active {
+	// reset color with variable
+	color: $gold;
+  }
+}
+
+span {
+  font-family: $font;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+
+button {
+	font-size: 1.2rem;
+	font-family: $font;
+  font-weight: 600;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.button {
+	padding: 0.5rem 2rem;
+	border: 1px solid $gold;
+	color: $gold;
+}
+
+ul {
+  padding: 0 0 1rem;
+
+  li {
+    padding: 0 0 0.5rem;
+  }
+}
+
+// Default Classes
+
+#app, body {
+  font-family: $font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}

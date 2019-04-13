@@ -1,0 +1,15 @@
+$font: 'Work Sans', sans-serif;
+
+.special {
+  font-family: $font;
+  font-weight: 600;
+}
+
+// Layers
+$menu: 3;
+$front: 2;
+$default: 1;
+$base: 0;
+$back: -1;
+
+// Actions
