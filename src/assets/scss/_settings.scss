@@ -89,14 +89,3 @@ ul {
     padding: 0 0 0.5rem;
   }
 }
-
-// Default Classes
-
-#app, body {
-  font-family: $font;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-}

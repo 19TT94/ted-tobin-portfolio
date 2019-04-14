@@ -19,18 +19,12 @@
 export default {
   name: 'WordSlider',
 
+  props: {
+    quotes: Array
+  },
+
   data() {
 		return {
-      quotes: [
-        "Every generation has a story",
-        "New model original parts",
-        "A whole new kind of animal",
-        "Question reality. Change your destiny.",
-        "Hero…Legend…King",
-        "Anyone can save the galaxy…once.",
-        "Bring the adventure…to life",
-        "Don’t let anyone spoil this."
-      ],
       current: 0
 		};
 	},
@@ -125,22 +119,21 @@ export default {
 .letter {
   position: relative;
 	display: inline-block;
-	transition: all ease 0.5s;
   min-width: 5px;
   font-weight: 400;
-
   color: $gray;
   opacity: 0.5;
   filter: blur(1px);
+  transition: all ease 0.5s;
 }
 
 .active {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 200;
-
   color: $yellow;
   opacity: 1;
   filter: blur(0);
+  transition: all ease 0.5s;
 }
 
 .controls {
