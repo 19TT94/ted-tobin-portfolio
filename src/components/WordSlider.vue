@@ -130,7 +130,7 @@ export default {
 .active {
   font-size: 30px;
   font-weight: 200;
-  color: $yellow;
+  color: $white;
   opacity: 1;
   filter: blur(0);
   transition: all ease 0.5s;
