@@ -141,6 +141,7 @@ export default {
 }
 
 .controls {
+  display: block;
 	position: absolute;
 	bottom: 5%;
   left: 0;
@@ -152,11 +153,13 @@ export default {
   flex-direction: row;
 
   .prev {
+    display: flex;
     align-items: flex-start;
     color: $red;
   }
 
   .open-work {
+    display: flex;
     align-items: flex-end;
     color: $yellow;
   }

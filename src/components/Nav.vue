@@ -4,12 +4,12 @@
       <span class="first">Ted</span> <span class="last">Tobin</span>
     </router-link>
     <div class="toggle" @click="toggleNav">
-			<div class="bar"></div>
-			<div class="bar"></div>
+			<div class="bar" :class="{ 'rotate': open }"></div>
+			<div class="bar" :class="{ 'rotate': open }"></div>
 		</div>
-    <div class="menu">
-      <router-link class="home" to="/">Home</router-link>
-      <router-link class="about" to="/about">About</router-link>
+    <div class="menu" :class="{ 'reveal': open }">
+      <router-link class="item" to="/">Scripts</router-link>
+      <router-link class="item" to="/about">About</router-link>
     </div>
   </div>
 </template>
@@ -18,9 +18,16 @@
 export default {
   name: 'Nav',
 
+  data() {
+    return {
+      open: false
+    }
+  },
+
   methods: {
     toggleNav() {
       console.log("hi");
+      this.open = !this.open;
     }
   }
 }
@@ -68,25 +75,33 @@ export default {
 
 .menu {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  margin: 2rem 2.4rem;
+  width: auto;
+  top: 0;
+  right: 50px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: $white;
+  flex-direction: row;
+  z-index: $front;
   opacity: 0;
   visibility: hidden;
-  z-index: $front;
-  transition: all 0.5s ease;
+  transition: all ease 0.5s;
 
   .item {
     font-family: $font;
-    font-weight: 600;
-    padding: 1rem 0;
-    color: $black;
-    font-size: 2rem;
+    font-weight: 200;
+    font-size: 1.5rem;
+    color: $yellow;
+    padding: 0 1rem;
   }
+}
+
+.reveal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rotate {
+  transform: rotate(45deg);
 }
 
 </style>
