@@ -52,14 +52,14 @@ export default {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 35px;
-	height: 35px;
+	width: 30px;
+	height: 30px;
 	margin: 2rem 2.4rem;
 	z-index: $front;
 
 	.bar {
 		width: 100%;
-		height: 3px;
+		height: 2px;
 		background: $red;
 		margin-top: 6px;
 		transition: all ease-in-out 0.5s;

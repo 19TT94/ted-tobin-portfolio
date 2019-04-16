@@ -11,6 +11,7 @@
       <button class="prev" @click="prev">
         <font-awesome-icon icon="chevron-left" />
       </button>
+      <button class="open-work">View Work</button>
       <button class="next" @click="next">
         <font-awesome-icon icon="chevron-right" />
       </button>
@@ -112,8 +113,7 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-  background: black;
+  background: $black;
 }
 
 .word {
@@ -142,25 +142,28 @@ export default {
 
 .controls {
 	position: absolute;
-	bottom: 10%;
+	bottom: 5%;
   left: 0;
   right: 0;
   margin: 0 auto;
   width: 100%;
+  height: 20px;
   display: flex;
   flex-direction: row;
-  display: flex;
 
   .prev {
-    position: absolute;
-  	bottom: 10%;
-    left: 10%;
+    align-items: flex-start;
+    color: $red;
+  }
+
+  .open-work {
+    align-items: flex-end;
+    color: $yellow;
   }
 
   .next {
-    position: absolute;
-  	bottom: 10%;
-    right: 10%;
+    justify-content: flex-end;
+    color: $red;
   }
 }
 </style>
