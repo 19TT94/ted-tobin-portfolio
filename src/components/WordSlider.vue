@@ -8,8 +8,12 @@
   	</div>
 
   	<div class="controls">
-      <button class="prev" @click="prev">Prev</button>
-      <button class="next" @click="next">Next</button>
+      <button class="prev" @click="prev">
+        <font-awesome-icon icon="chevron-left" />
+      </button>
+      <button class="next" @click="next">
+        <font-awesome-icon icon="chevron-right" />
+      </button>
     </div>
   </div>
 
