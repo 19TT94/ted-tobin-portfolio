@@ -4,8 +4,8 @@
       <span class="first">Ted</span> <span class="last">Tobin</span>
     </router-link>
     <div class="toggle" @click="toggleNav">
-			<div class="bar" :class="{ 'rotate': unlock }"></div>
-			<div class="bar" :class="{ 'rotate': unlock }"></div>
+			<div class="bar"></div>
+			<div class="bar"></div>
 		</div>
     <div class="menu">
       <router-link class="home" to="/">Home</router-link>
@@ -17,6 +17,12 @@
 <script>
 export default {
   name: 'Nav',
+
+  methods: {
+    toggleNav() {
+      console.log("hi");
+    }
+  }
 }
 </script>
 
