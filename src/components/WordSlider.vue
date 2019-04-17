@@ -9,7 +9,7 @@
 
   	<div class="controls">
       <button class="prev" @click="prev"><font-awesome-icon icon="chevron-left" /></button>
-      <button class="open-work">View Work</button>
+      <button class="open-work">Learn More</button>
       <button class="next" @click="next"><font-awesome-icon icon="chevron-right" /></button>
     </div>
   </div>
@@ -143,7 +143,6 @@ export default {
   margin: 0 auto;
   width: 90%;
   margin: 0 auto;
-
   @include flexbox(row, wrap, space-between, center);
 
   .prev {
@@ -152,6 +151,7 @@ export default {
 
   .open-work {
     color: $yellow;
+    font-weight: 300;
   }
 
   .next {
