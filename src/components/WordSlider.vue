@@ -8,13 +8,9 @@
   	</div>
 
   	<div class="controls">
-      <button class="prev" @click="prev">
-        <font-awesome-icon icon="chevron-left" />
-      </button>
+      <button class="prev" @click="prev"><font-awesome-icon icon="chevron-left" /></button>
       <button class="open-work">View Work</button>
-      <button class="next" @click="next">
-        <font-awesome-icon icon="chevron-right" />
-      </button>
+      <button class="next" @click="next"><font-awesome-icon icon="chevron-right" /></button>
     </div>
   </div>
 
@@ -110,9 +106,7 @@ export default {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  @include flexbox(row, nowrap, center, center);
   background: $black;
 }
 
@@ -147,26 +141,23 @@ export default {
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 100%;
-  height: 20px;
-  display: flex;
-  flex-direction: row;
+  width: 90%;
+  margin: 0 auto;
+
+  @include flexbox(row, wrap, space-between, center);
 
   .prev {
-    display: flex;
-    align-items: flex-start;
     color: $red;
   }
 
   .open-work {
-    display: flex;
-    align-items: flex-end;
     color: $yellow;
   }
 
   .next {
-    justify-content: flex-end;
     color: $red;
   }
 }
+
+
 </style>

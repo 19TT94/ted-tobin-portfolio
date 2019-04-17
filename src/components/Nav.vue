@@ -26,7 +26,6 @@ export default {
 
   methods: {
     toggleNav() {
-      console.log("hi");
       this.open = !this.open;
     }
   }
@@ -74,13 +73,12 @@ export default {
 }
 
 .menu {
+  @include flexbox(row, nowrap, flex-start, flex-start);
   position: absolute;
   margin: 2rem 2.4rem;
   width: auto;
   top: 0;
   right: 50px;
-  display: flex;
-  flex-direction: row;
   z-index: $front;
   opacity: 0;
   visibility: hidden;
