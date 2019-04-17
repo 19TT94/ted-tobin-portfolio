@@ -10,6 +10,8 @@
     <div class="menu" :class="{ 'reveal': open }">
       <router-link class="item" to="/">Scripts</router-link>
       <router-link class="item" to="/about">About</router-link>
+      <a href="#"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
+      <a href="#"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
     </div>
   </div>
 </template>
@@ -73,7 +75,7 @@ export default {
 }
 
 .menu {
-  @include flexbox(row, nowrap, flex-start, flex-start);
+  @include flexbox(row-reverse, nowrap, flex-start, flex-start);
   position: absolute;
   margin: 2rem 2.4rem;
   width: auto;
@@ -87,7 +89,7 @@ export default {
   .item {
     font-family: $font;
     font-weight: 200;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: $yellow;
     padding: 0 1rem;
   }
@@ -100,6 +102,14 @@ export default {
 
 .rotate {
   transform: rotate(45deg);
+
+  &:first-child {
+		transform: rotate(45deg) translateX(6px);
+	}
+
+	&:last-child {
+		transform: rotate(-45deg) translateX(6px);
+	}
 }
 
 </style>
