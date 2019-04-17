@@ -1,17 +1,14 @@
 <template>
   <div id="home">
-    <navigation />
     <slider :quotes="quotes" />
   </div>
 </template>
 
 <script>
-import navigation from "@/components/Nav";
 import slider from "@/components/WordSlider";
 
 export default {
   components: {
-    navigation,
     slider
   },
 
