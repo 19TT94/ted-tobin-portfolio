@@ -42,8 +42,12 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2rem 2.4rem;
+  margin: 1.5rem 1.5rem;
   z-index: $front;
+
+  @media #{$small} {
+    margin: 2rem 2.4rem;
+  }
 
   .first {
     color: $red;
@@ -62,8 +66,12 @@ export default {
 	right: 0;
 	width: 30px;
 	height: 30px;
-	margin: 2rem 2.4rem;
 	z-index: $menu;
+  margin: 1.5rem 1.5rem;
+
+  @media #{$small} {
+    margin: 2rem 2.4rem;
+  }
 
 	.bar {
 		width: 100%;
