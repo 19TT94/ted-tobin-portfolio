@@ -126,12 +126,16 @@ export default {
 }
 
 .active {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 200;
   color: $white;
   opacity: 1;
   filter: blur(0);
   transition: all ease 0.5s;
+
+  @media #{$small} {
+    font-size: 30px;
+  }
 }
 
 .controls {
