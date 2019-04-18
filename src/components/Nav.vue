@@ -63,7 +63,7 @@ export default {
 	width: 30px;
 	height: 30px;
 	margin: 2rem 2.4rem;
-	z-index: $front;
+	z-index: $menu;
 
 	.bar {
 		width: 100%;
@@ -75,23 +75,37 @@ export default {
 }
 
 .menu {
-  @include flexbox(row-reverse, nowrap, flex-start, flex-start);
   position: absolute;
-  margin: 2rem 2.4rem;
-  width: auto;
+  width: 100vw;
+  height: 100vh;
   top: 0;
-  right: 50px;
+  right: 0;
   z-index: $front;
   opacity: 0;
   visibility: hidden;
   transition: all ease 0.5s;
+  background: $black;
+  @include flexbox(column, nowrap, center, center);
+
+  @media #{$small} {
+    right: 50px;
+    width: auto;
+    height: auto;
+    background: transparent;
+    margin: 2rem 2.4rem;
+    @include flexbox(row-reverse, nowrap, flex-start, flex-start);
+  }
 
   .item {
     font-family: $font;
     font-weight: 200;
     font-size: 1.2rem;
     color: $yellow;
-    padding: 0 1rem;
+    padding: 1rem;
+
+    @media #{$small} {
+      padding: 0 1rem;
+    }
   }
 }
 
