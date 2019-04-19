@@ -149,16 +149,16 @@ export default {
   @include flexbox(row, wrap, space-between, center);
 
   .prev {
-    color: $red;
+    color: $orange;
   }
 
   .open-work {
-    color: $yellow;
+    color: $blue;
     font-weight: 300;
   }
 
   .next {
-    color: $red;
+    color: $orange;
   }
 }
 

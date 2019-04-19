@@ -49,14 +49,18 @@ export default {
     margin: 2rem 2.4rem;
   }
 
-  .first {
-    color: $red;
+  .first,
+  .last {
     font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  .first {
+    color: $orange;
   }
 
   .last {
-    color: $yellow;
-    font-size: 1.5rem;
+    color: $blue;
   }
 }
 
@@ -76,7 +80,7 @@ export default {
 	.bar {
 		width: 100%;
 		height: 2px;
-		background: $red;
+		background: $orange;
 		margin-top: 6px;
 		transition: all ease-in-out 0.5s;
 	}
@@ -108,7 +112,7 @@ export default {
     font-family: $font;
     font-weight: 200;
     font-size: 1.2rem;
-    color: $yellow;
+    color: $blue;
     padding: 1rem;
 
     @media #{$small} {
