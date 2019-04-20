@@ -16,13 +16,13 @@ export default {
     return {
       quotes: [
         "Every generation has a story",
-        "New model original parts",
-        "A whole new kind of animal",
-        "Question reality. Change your destiny.",
+        "Don’t let anyone spoil this.",
         "Hero…Legend…King",
         "Anyone can save the galaxy…once.",
+        "Question reality. Change your destiny.",
+        "New model original parts",
         "Bring the adventure…to life",
-        "Don’t let anyone spoil this."
+        "A whole new kind of animal"
       ]
     }
   }

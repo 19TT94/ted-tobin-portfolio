@@ -9,16 +9,24 @@
 
   	<div class="controls">
       <button class="prev" @click="prev"><font-awesome-icon icon="chevron-left" /></button>
-      <button class="open-work">Learn More</button>
+      <button class="open-work" @click="openProject(current)">Learn More</button>
       <button class="next" @click="next"><font-awesome-icon icon="chevron-right" /></button>
     </div>
+
+    <project :current="current" :open="open" />
   </div>
 
 </template>
 
 <script>
+import project from "@/components/Project";
+
 export default {
   name: 'WordSlider',
+
+  components: {
+    project
+  },
 
   props: {
     quotes: Array
@@ -26,7 +34,8 @@ export default {
 
   data() {
 		return {
-      current: 0
+      current: 0,
+      open: false
 		};
 	},
 
@@ -41,6 +50,8 @@ export default {
   methods: {
     /*@returns incremented current slide index */
 		next() {
+      // keep modal closed on next
+      this.open = false;
       // check for max
 			if(this.current === this.quotes.length - 1) {
         this.current = 0
@@ -52,6 +63,8 @@ export default {
 		},
     /*@returns decremented current slide index */
 		prev() {
+      // keep modal closed on next
+      this.open = false;
       // check for min
 			if(this.current === 0) {
         this.current = this.quotes.length
@@ -90,6 +103,9 @@ export default {
 		},
     getLetters(word) {
       return word.split("")
+    },
+    openProject(index) {
+      this.open = true
     }
 	}
 }
@@ -161,6 +177,5 @@ export default {
     color: $orange;
   }
 }
-
 
 </style>
