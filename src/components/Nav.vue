@@ -8,8 +8,8 @@
 			<div class="bar" :class="{ 'rotate': open }"></div>
 		</div>
     <div class="menu" :class="{ 'reveal': open }">
-      <router-link class="item" to="/">Scripts</router-link>
-      <router-link class="item" to="/about">About</router-link>
+      <router-link class="item" to="/scripts" @click.native="toggleNav">Scripts</router-link>
+      <router-link class="item" to="/about" @click.native="toggleNav">About</router-link>
       <a href="#"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
       <a href="#"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
     </div>
@@ -60,7 +60,7 @@ export default {
 
 <style lang="scss">
 
-@import "@/assets/scss/app.scss"; // global styless
+@import "@/assets/scss/app.scss"; // global styles
 
 .home {
   position: absolute;
@@ -157,7 +157,7 @@ export default {
   @include flexbox(column, nowrap, center, center);
 
   &-text {
-    color: $red;
+    color: $blue;
     opacity: 0;
     padding: 1rem;
     font-size: 1.5rem;
@@ -173,6 +173,7 @@ export default {
 .hide {
   opacity: 0;
   visibility: hidden;
+  display: none;
 }
 
 .rotate {
