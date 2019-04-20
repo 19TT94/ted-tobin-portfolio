@@ -8,10 +8,11 @@
 			<div class="bar" :class="{ 'rotate': open }"></div>
 		</div>
     <div class="menu" :class="{ 'reveal': open }">
+      <router-link class="item desktop" to="/" @click.native="toggleNav">Home</router-link>
       <router-link class="item" to="/scripts" @click.native="toggleNav">Scripts</router-link>
       <router-link class="item" to="/about" @click.native="toggleNav">About</router-link>
-      <a href="#"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
-      <a href="#"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
+      <a href="https://www.instagram.com/ttobin32/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
+      <a href="https://www.linkedin.com/in/ted-tobin-7655406/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
     </div>
     <div class="modal" :class="{ 'hide': !modal, 'remove': remove }">
       <span class="modal-text" :class="{ 'reveal': creative }">Creative Director.</span>
@@ -193,6 +194,14 @@ export default {
 	&:last-child {
 		transform: rotate(-45deg) translateX(6px);
 	}
+}
+
+.desktop {
+  display: block;
+
+  @media #{$small} {
+    display: none;
+  }
 }
 
 </style>

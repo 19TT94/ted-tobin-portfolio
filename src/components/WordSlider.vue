@@ -124,6 +124,7 @@ export default {
 	height: 100%;
   @include flexbox(row, nowrap, center, center);
   background: $black;
+  overflow: hidden;
 }
 
 .word {
