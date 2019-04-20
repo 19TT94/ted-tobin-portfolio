@@ -13,7 +13,7 @@
       <a href="#"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
       <a href="#"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
     </div>
-    <div class="modal" :class="{ 'hide': !modal }">
+    <div class="modal" :class="{ 'hide': !modal, 'remove': remove }">
       <span class="modal-text" :class="{ 'reveal': creative }">Creative Director.</span>
       <span class="modal-text" :class="{ 'reveal': writer }">Copywriter.</span>
       <span class="modal-text" :class="{ 'reveal': consultant }">Consultant.</span>
@@ -34,6 +34,9 @@ export default {
           this.consultant = true;
           setTimeout(()=> {
             this.modal = false;
+            setTimeout(()=> {
+              this.remove = true;
+            }, 1000);
           }, 2000);
         }, 1000);
       }, 1000);
@@ -44,6 +47,7 @@ export default {
     return {
       open: false,
       modal: true,
+      remove: false,
       creative: false,
       writer: false,
       consultant: false
@@ -173,6 +177,9 @@ export default {
 .hide {
   opacity: 0;
   visibility: hidden;
+}
+
+.remove {
   display: none;
 }
 
