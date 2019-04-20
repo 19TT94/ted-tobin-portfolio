@@ -13,6 +13,11 @@
       <a href="#"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
       <a href="#"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
     </div>
+    <div class="modal" :class="{ 'hide': !modal }">
+      <span class="modal-text" :class="{ 'reveal': creative }">Creative Director.</span>
+      <span class="modal-text" :class="{ 'reveal': writer }">Copywriter.</span>
+      <span class="modal-text" :class="{ 'reveal': consultant }">Consultant.</span>
+   </div>
   </div>
 </template>
 
@@ -20,9 +25,28 @@
 export default {
   name: 'Nav',
 
+  mounted() {
+    setTimeout(()=> {
+      this.creative = true;
+      setTimeout(()=> {
+        this.writer = true;
+        setTimeout(()=> {
+          this.consultant = true;
+          setTimeout(()=> {
+            this.modal = false;
+          }, 2000);
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  },
+
   data() {
     return {
-      open: false
+      open: false,
+      modal: true,
+      creative: false,
+      writer: false,
+      consultant: false
     }
   },
 
@@ -121,9 +145,34 @@ export default {
   }
 }
 
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: $menu;
+  background: $black;
+  transition: all ease 1s;
+  @include flexbox(column, nowrap, center, center);
+
+  &-text {
+    color: $red;
+    opacity: 0;
+    padding: 1rem;
+    font-size: 1.5rem;
+    visibility: visible;
+  }
+}
+
 .reveal {
   opacity: 1;
   visibility: visible;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .rotate {
