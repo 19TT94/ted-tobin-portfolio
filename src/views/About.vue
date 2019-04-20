@@ -17,10 +17,11 @@ export default {
 @import "@/assets/scss/app.scss"; // global styles
 
 #about {
-  padding: 5rem 2rem 0;
+  padding: 0 2rem;
   color: $orange;
   background: $black;
-  min-height: 100vh;
+  min-height: 100%;
+  @include flexbox(column, nowrap, center, center);
 
   .bio {
     line-height: 30px;
