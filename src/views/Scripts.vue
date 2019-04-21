@@ -10,7 +10,7 @@
           <li>NOELLE</li>
           <li>FORD VS FERRARI</li>
           <li>SECRET LIFE OF PETS&nbsp;2</li>
-          <li>WONDERLAND </li>
+          <li>WONDERLAND</li>
           <li>MALEFICENT 2</li>
           <li>HOBBS AND SHAW</li>
           <li>STUBER</li>
@@ -28,7 +28,7 @@
           <li>ASSEMBLE ONE LAST TIME</li>
           <li>IT STARTED WITH AN IDEA</li>
           <li>YOU’RE IN THIS TO THE END</li>
-          <li>HOW DID YOU THINK  THIS WOULD END</li>
+          <li>HOW DID YOU THINK THIS WOULD END</li>
           <li>AN ENTIRE UNIVERSE COMES DOWN&nbsp;TO&nbsp;THIS</li>
           <li>YOU TOOK THE JOURNEY DISCOVER&nbsp;THE&nbsp;DESTINATION</li>
         </ul>

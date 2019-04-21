@@ -7,10 +7,10 @@ import router from './router'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedin,faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faChevronRight,faChevronLeft,faLinkedin,faInstagram)
+library.add(faChevronRight, faChevronLeft, faLinkedin, faInstagram)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
