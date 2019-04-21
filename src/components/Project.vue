@@ -1,8 +1,13 @@
 <template>
   <div class="project" :class="{'open': open}">
-    <h1>{{work[current].title}}</h1>
-    <img :src="work[current].poster">
-    <button @click="closeProject">close</button>
+    <h1>{{work[currentProject].title}}</h1>
+    <img :src="work[currentProject].poster">
+    <button class="close" @click="closeProject">
+      <div class="toggle">
+  			<div class="bar rotate"></div>
+  			<div class="bar rotate"></div>
+  		</div>
+    </button>
   </div>
 </template>
 
@@ -15,26 +20,23 @@ export default {
     open: Boolean
   },
 
-  mounted() {
-    console.log(this.current)
-    console.log(this.open)
-  },
-
   data() {
     return {
+      modal: this.$store.state.modal,
+      currentProject: this.current,
       work: [
         {
           'quote': "Every generation has a story",
           'image': require('@/assets/images/grid/the-force-awakens.jpg'),
           'poster': require('@/assets/images/posters/the-force-awakens.jpg'),
-          'title': 'The Force Awakens',
+          'title': 'Star Wars The Force Awakens',
           'description': ''
         },
         {
           'quote': "Don’t let anyone spoil this.",
           'image': require('@/assets/images/grid/the-last-jedi.jpg'),
           'poster': require('@/assets/images/posters/the-last-jedi.jpg'),
-          'title': 'Star Wars: The Last Jedi',
+          'title': 'Star Wars The Last Jedi',
           'description': ''
         },
         {
@@ -84,7 +86,7 @@ export default {
   },
   methods: {
     closeProject() {
-      this.open = false
+      this.$store.commit('toggle');
     }
   }
 }
@@ -109,7 +111,7 @@ export default {
 
 
   h1 {
-    padding-top: 2rem;
+    padding: 4rem;
     color: $blue;
   }
 
@@ -122,5 +124,24 @@ export default {
 .open {
   opacity: 1;
   z-index: $menu;
+}
+
+.close {
+  position: absolute;
+  top: 5%;
+  left: 6%;
+  color: $orange;
+
+  .rotate {
+    transform: rotate(45deg);
+
+    &:first-child {
+  		transform: rotate(45deg) translateX(6px);
+  	}
+
+  	&:last-child {
+  		transform: rotate(-45deg) translateX(6px);
+  	}
+  }
 }
 </style>
