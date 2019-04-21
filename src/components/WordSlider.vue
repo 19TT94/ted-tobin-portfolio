@@ -32,10 +32,15 @@ export default {
     quotes: Array
   },
 
+  computed: {
+    open() {
+      return this.$store.state.modal
+    }
+  },
+
   data() {
 		return {
       current: 0,
-      open: false
 		};
 	},
 
@@ -105,7 +110,7 @@ export default {
       return word.split("")
     },
     openProject(index) {
-      this.open = true
+      this.$store.commit('toggle');
     }
 	}
 }
@@ -172,6 +177,11 @@ export default {
   .open-work {
     color: $blue;
     font-weight: 300;
+		transition: all ease 0.5s;
+
+		&:hover {
+			color: $orange;
+		}
   }
 
   .next {
