@@ -2,8 +2,8 @@
 
   <div class="word-slider">
     <div class="word-wrapper">
-      <p class="word" :id="quotes[index]" v-for="(quote, index) in quotes" :key="quote">
-        <span class="letter" v-for="letter in quote" :key="letter" v-html="letter"></span>
+      <p class="word" :id="quotes[index]" v-for="(quote, index) in quotes" :key="quote.id">
+        <span class="letter" v-for="letter in quote" :key="letter.id" v-html="letter"></span>
       </p>
     </div>
 
@@ -32,15 +32,16 @@ export default {
     quotes: Array
   },
 
-  computed: {
-    open () {
-      return this.$store.state.modal
-    }
-  },
+  // computed: {
+  //   open () {
+  //     return this.$store.state.modal
+  //   }
+  // },
 
   data () {
     return {
-      current: 0
+      current: 0,
+      open: this.$store.state.modal
     }
   },
 
@@ -85,7 +86,7 @@ export default {
       // remove active class from html collection
       while (reset.length) reset[0].classList.remove('active')
       // get absolutly positioned letters
-      let elems = document.getElementsByClassName('')
+      let elems = document.getElementsByClassName('letter')
       // randomly position all words
       for (var i = 0; i < elems.length; i++) {
         var randLeft = this.random(document.body.clientWidth)
@@ -109,7 +110,7 @@ export default {
     getLetters (word) {
       return word.split('')
     },
-    openProject (index) {
+    openProject () {
       this.$store.commit('toggle')
     }
   }
