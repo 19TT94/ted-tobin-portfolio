@@ -2,7 +2,7 @@
 
   <div class="word-slider">
     <div class="word-wrapper">
-      <p class="word" :id="quotes[index]" v-for="(quote, index) in quotes" :key="quote.id">
+      <p class="quote" :id="quoteList[index]" v-for="(quote, index) in quoteList" :key="quote.id">
         <span class="letter" v-for="letter in quote" :key="letter.id" v-html="letter"></span>
       </p>
     </div>
@@ -40,15 +40,20 @@ export default {
 
   data () {
     return {
-      current: 0
+      current: 0,
+      quoteList: this.quotes
     }
   },
 
   mounted () {
     // split words into letters
-    this.quotes.forEach((quote, index) => {
-      quote = quote.split('')
-    })
+    // for (var i = 0; i < this.quoteList.length; i++) {
+    //   this.quoteList[i] = this.quoteList[i].split(' ')
+    //   for (var j = 0; j < this.quoteList[i].length; j++) {
+    //     this.quoteList[i][j] = '<span class="word">' + this.quoteList[i][j] + '</span>'
+    //   }
+    // }
+
     this.scatter()
   },
 
@@ -56,7 +61,7 @@ export default {
     /* @returns incremented current slide index */
     next () {
       // check for max
-      if (this.current === this.quotes.length - 1) {
+      if (this.current === this.quoteList.length - 1) {
         this.current = 0
       }
       // increment current
@@ -68,7 +73,7 @@ export default {
     prev () {
       // check for min
       if (this.current === 0) {
-        this.current = this.quotes.length
+        this.current = this.quoteList.length
       }
       // decrement current
       this.current = this.current - 1
@@ -89,7 +94,7 @@ export default {
         elems[i].style.transform = 'translate(' + randLeft + 'px,' + randTop + 'px)'
       }
       // set active element
-      let active = document.getElementById(this.quotes[this.current]).children
+      let active = document.getElementById(this.quoteList[this.current]).children
       // set each active letter to position 0
       for (var j = 0; j < active.length; j++) {
         active[j].style.transform = 'translate(0)'
@@ -128,8 +133,12 @@ export default {
   @include flexbox(row, nowrap, center, center);
 }
 
-.word {
+.quote {
   position: absolute;
+}
+
+.word {
+  @include flexbox(row, nowrap, flex-start, flex-start);
 }
 
 .letter {

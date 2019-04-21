@@ -18,7 +18,7 @@ export default {
         'Every generation has a story',
         'Don’t let anyone spoil this.',
         'Hero…Legend…King',
-        'Anyone can save the galaxy…once.',
+        'Anyone can save the galaxy ... once.',
         'Question reality. Change your destiny.',
         'New model original parts',
         'Bring the adventure…to life',
