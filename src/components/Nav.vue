@@ -4,9 +4,9 @@
       <img :src="require('@/assets/images/logo.png')"><span class="first">Ted</span> <span class="last">Tobin</span>
     </router-link>
     <div class="toggle" @click="toggleNav">
-			<div class="bar" :class="{ 'rotate': open }"></div>
-			<div class="bar" :class="{ 'rotate': open }"></div>
-		</div>
+      <div class="bar" :class="{ 'rotate': open }"></div>
+      <div class="bar" :class="{ 'rotate': open }"></div>
+    </div>
     <div class="menu" :class="{ 'reveal': open }">
       <router-link class="item desktop" to="/" @click.native="toggleNav">Home</router-link>
       <router-link class="item" to="/scripts" @click.native="toggleNav">Scripts</router-link>
@@ -26,25 +26,25 @@
 export default {
   name: 'Nav',
 
-  mounted() {
-    setTimeout(()=> {
-      this.creative = true;
-      setTimeout(()=> {
-        this.writer = true;
-        setTimeout(()=> {
-          this.consultant = true;
-          setTimeout(()=> {
-            this.modal = false;
-            setTimeout(()=> {
-              this.remove = true;
-            }, 1000);
-          }, 2000);
-        }, 1000);
-      }, 1000);
-    }, 1000);
+  mounted () {
+    setTimeout(() => {
+      this.creative = true
+      setTimeout(() => {
+        this.writer = true
+        setTimeout(() => {
+          this.consultant = true
+          setTimeout(() => {
+            this.modal = false
+            setTimeout(() => {
+              this.remove = true
+            }, 1000)
+          }, 2000)
+        }, 1000)
+      }, 1000)
+    }, 1000)
   },
 
-  data() {
+  data () {
     return {
       open: false,
       modal: true,
@@ -56,8 +56,8 @@ export default {
   },
 
   methods: {
-    toggleNav() {
-      this.open = !this.open;
+    toggleNav () {
+      this.open = !this.open
     }
   }
 }
@@ -105,12 +105,12 @@ export default {
 }
 
 .toggle {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 30px;
-	height: 30px;
-	z-index: $menu;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  z-index: $menu;
   margin: 1.5rem 1.5rem;
 
   &:hover {
@@ -121,13 +121,13 @@ export default {
     margin: 2rem 2.4rem;
   }
 
-	.bar {
-		width: 100%;
-		height: 2px;
-		background: $orange;
-		margin-top: 6px;
-		transition: all ease-in-out 0.5s;
-	}
+  .bar {
+    width: 100%;
+    height: 2px;
+    background: $orange;
+    margin-top: 6px;
+    transition: all ease-in-out 0.5s;
+  }
 }
 
 .menu {
@@ -203,12 +203,12 @@ export default {
   transform: rotate(45deg);
 
   &:first-child {
-		transform: rotate(45deg) translateX(6px);
-	}
+    transform: rotate(45deg) translateX(6px);
+  }
 
-	&:last-child {
-		transform: rotate(-45deg) translateX(6px);
-	}
+  &:last-child {
+    transform: rotate(-45deg) translateX(6px);
+  }
 }
 
 .desktop {
