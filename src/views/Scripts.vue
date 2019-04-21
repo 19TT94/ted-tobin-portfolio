@@ -122,7 +122,7 @@ export default {
     position: relative;
     width: 100%;
     height: 80vh;
-    overflow: scroll;
+    overflow-y: scroll;
 
     &:before {
       content: "";
@@ -130,22 +130,31 @@ export default {
       bottom: 9%;
       left: 0;
       width: 100%;
-      height: 200px;
+      height: 100px;
       background: $black;
       opacity: 0.8;
       filter: blur(20px);
+
+      @media #{$small} {
+        bottom: 9%;
+        height: 200px;
+      }
     }
 
     &:after {
       content: "";
       position: fixed;
-      top: 0;
+      top: -5%;
       left: 0;
       width: 100%;
-      height: 300px;
+      height: 150px;
       background: $black;
       opacity: 0.8;
       filter: blur(20px);
+
+      @media #{$small} {
+        height: 300px;
+      }
     }
   }
 
