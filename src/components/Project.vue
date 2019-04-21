@@ -76,7 +76,7 @@ export default {
           'quote': 'Bring the adventure… to life',
           'image': require('@/assets/images/grid/the-jungle-book.jpg'),
           'poster': require('@/assets/images/posters/the-jungle-book.jpg'),
-          'title': 'The jungle Book',
+          'title': 'The Jungle Book',
           'description': ''
         },
         {
