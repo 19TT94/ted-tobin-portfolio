@@ -20,10 +20,15 @@ export default {
     open: Boolean
   },
 
+  computed: {
+    currentProject () {
+      return this.current
+    }
+  },
+
   data () {
     return {
       modal: this.$store.state.modal,
-      currentProject: this.current,
       work: [
         {
           'quote': 'Every generation has a story"',

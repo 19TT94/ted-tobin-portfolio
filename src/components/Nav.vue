@@ -9,7 +9,8 @@
     </div>
     <div class="menu" :class="{ 'reveal': open }">
       <router-link class="item desktop" to="/" @click.native="toggleNav">Home</router-link>
-      <router-link class="item" to="/scripts" @click.native="toggleNav">Scripts</router-link>
+      <!-- <router-link class="item" to="/scripts" @click.native="toggleNav">Scripts</router-link> -->
+      <a class="download" href="../assets/images/scripts-samples.pdf" download>Scripts</a>
       <router-link class="item" to="/about" @click.native="toggleNav">About</router-link>
       <a href="https://www.instagram.com/ttobin32/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
       <a href="https://www.linkedin.com/in/ted-tobin-7655406/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
