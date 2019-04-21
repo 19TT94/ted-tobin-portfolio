@@ -1,13 +1,13 @@
 <template>
 
-	<div class="word-slider">
+  <div class="word-slider">
     <div class="word-wrapper">
-  		<p class="word" :id="quotes[index]" v-for="quote,index in quotes">
-  			<span class="letter" v-for="letter in quote" v-html="letter"></span>
-  		</p>
-  	</div>
+      <p class="word" :id="quotes[index]" v-for="(quote, index) in quotes" :key="quote">
+        <span class="letter" v-for="letter in quote" :key="letter" v-html="letter"></span>
+      </p>
+    </div>
 
-  	<div class="controls">
+    <div class="controls">
       <button class="prev" @click="prev"><font-awesome-icon icon="chevron-left" /></button>
       <button class="open-work" @click="openProject(current)">View Work</button>
       <button class="next" @click="next"><font-awesome-icon icon="chevron-right" /></button>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import project from "@/components/Project";
+import project from '@/components/Project'
 
 export default {
   name: 'WordSlider',
@@ -33,86 +33,86 @@ export default {
   },
 
   computed: {
-    open() {
+    open () {
       return this.$store.state.modal
     }
   },
 
-  data() {
-		return {
-      current: 0,
-		};
-	},
+  data () {
+    return {
+      current: 0
+    }
+  },
 
-  mounted() {
+  mounted () {
     // split words into letters
-    this.quotes.forEach((quote,index)=> {
-      quote = quote.split("")
+    this.quotes.forEach((quote, index) => {
+      quote = quote.split('')
     })
-    this.scatter();
+    this.scatter()
   },
 
   methods: {
-    /*@returns incremented current slide index */
-		next() {
+    /* @returns incremented current slide index */
+    next () {
       // keep modal closed on next
-      this.open = false;
+      this.open = false
       // check for max
-			if(this.current === this.quotes.length - 1) {
+      if (this.current === this.quotes.length - 1) {
         this.current = 0
       }
       // increment current
       this.current = this.current + 1
       // set active slide and scatter others
       this.scatter()
-		},
-    /*@returns decremented current slide index */
-		prev() {
+    },
+    /* @returns decremented current slide index */
+    prev () {
       // keep modal closed on next
-      this.open = false;
+      this.open = false
       // check for min
-			if(this.current === 0) {
+      if (this.current === 0) {
         this.current = this.quotes.length
       }
       // decrement current
       this.current = this.current - 1
       // set active slide and scatter others
       this.scatter()
-		},
-    scatter(control) {
-      //remove old active
-      let reset = document.getElementsByClassName("active");
+    },
+    scatter (control) {
+      // remove old active
+      let reset = document.getElementsByClassName('active')
       // remove active class from html collection
-      while (reset.length) reset[0].classList.remove('active');
-			// get absolutly positioned letters
-			let elems = document.getElementsByClassName("letter")
+      while (reset.length) reset[0].classList.remove('active')
+      // get absolutly positioned letters
+      let elems = document.getElementsByClassName('')
       // randomly position all words
-      for(var index=0; index < elems.length; index++) {
+      for (var i = 0; i < elems.length; i++) {
         var randLeft = this.random(document.body.clientWidth)
-				var randTop = this.random(document.body.clientHeight)
-        elems[index].style.transform = "translate(" + randLeft + "px," + randTop + "px)"
+        var randTop = this.random(document.body.clientHeight)
+        elems[i].style.transform = 'translate(' + randLeft + 'px,' + randTop + 'px)'
       }
       // set active element
       let active = document.getElementById(this.quotes[this.current]).children
       // set each active letter to position 0
-      for(var index=0; index < active.length; index++) {
-        active[index].style.transform = "translate(0)"
-        active[index].classList.add("active")
+      for (var j = 0; j < active.length; j++) {
+        active[j].style.transform = 'translate(0)'
+        active[j].classList.add('active')
       }
-		},
-		random(max) {
-			// random value based on max
-			let value = Math.floor(Math.random() * max/2)
-			// return +/- based on seed
-			return Math.random() < 0.5 ? -value : value
-		},
-    getLetters(word) {
-      return word.split("")
     },
-    openProject(index) {
-      this.$store.commit('toggle');
+    random (max) {
+      // random value based on max
+      let value = Math.floor(Math.random() * max / 2)
+      // return +/- based on seed
+      return Math.random() < 0.5 ? -value : value
+    },
+    getLetters (word) {
+      return word.split('')
+    },
+    openProject (index) {
+      this.$store.commit('toggle')
     }
-	}
+  }
 }
 </script>
 
@@ -122,14 +122,14 @@ export default {
 @import "@/assets/scss/app.scss"; // global styles
 
 .word-wrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-  @include flexbox(row, nowrap, center, center);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: $black;
   overflow: hidden;
+  @include flexbox(row, nowrap, center, center);
 }
 
 .word {
@@ -138,7 +138,7 @@ export default {
 
 .letter {
   position: relative;
-	display: inline-block;
+  display: inline-block;
   min-width: 5px;
   font-weight: 400;
   color: $gray;
@@ -162,8 +162,8 @@ export default {
 
 .controls {
   display: block;
-	position: absolute;
-	bottom: 5%;
+  position: absolute;
+  bottom: 5%;
   left: 0;
   right: 0;
   width: 90%;
@@ -177,11 +177,11 @@ export default {
   .open-work {
     color: $blue;
     font-weight: 300;
-		transition: all ease 0.5s;
+    transition: all ease 0.5s;
 
-		&:hover {
-			color: $orange;
-		}
+    &:hover {
+      color: $orange;
+    }
   }
 
   .next {

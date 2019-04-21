@@ -8,8 +8,8 @@ export default new Vuex.Store({
     modal: false
   },
   mutations: {
-    toggle(state) {
-      state.modal = !state.modal;
+    toggle (state) {
+      state.modal = !state.modal
     }
   }
 })
