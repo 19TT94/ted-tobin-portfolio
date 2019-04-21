@@ -32,16 +32,15 @@ export default {
     quotes: Array
   },
 
-  // computed: {
-  //   open () {
-  //     return this.$store.state.modal
-  //   }
-  // },
+  computed: {
+    open () {
+      return this.$store.state.modal
+    }
+  },
 
   data () {
     return {
-      current: 0,
-      open: this.$store.state.modal
+      current: 0
     }
   },
 
@@ -56,8 +55,6 @@ export default {
   methods: {
     /* @returns incremented current slide index */
     next () {
-      // keep modal closed on next
-      this.open = false
       // check for max
       if (this.current === this.quotes.length - 1) {
         this.current = 0
@@ -69,8 +66,6 @@ export default {
     },
     /* @returns decremented current slide index */
     prev () {
-      // keep modal closed on next
-      this.open = false
       // check for min
       if (this.current === 0) {
         this.current = this.quotes.length
