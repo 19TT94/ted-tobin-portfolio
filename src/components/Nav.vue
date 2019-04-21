@@ -10,7 +10,7 @@
     <div class="menu" :class="{ 'reveal': open }">
       <router-link class="item desktop" to="/" @click.native="toggleNav">Home</router-link>
       <!-- <router-link class="item" to="/scripts" @click.native="toggleNav">Scripts</router-link> -->
-      <a class="item download" href="../assets/images/scripts-samples.pdf" download>Scripts</a>
+      <a class="item download" :href="require('@/assets/images/scripts-samples.pdf')" download>Scripts</a>
       <router-link class="item" to="/about" @click.native="toggleNav">About</router-link>
       <a class="phone item" href="tel:323-497-1947"><font-awesome-icon :icon="['fas', 'phone']" /></a>
       <a class="item" href="mailto:ted.tobin@gmail.com"><font-awesome-icon :icon="['fas', 'envelope']" /></a>
