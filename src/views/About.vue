@@ -26,10 +26,20 @@ export default {
 
   h2 {
     color: $blue;
+    font-size: 1rem;
+
+    @media #{$small} {
+      font-size: inherit;
+    }
   }
 
   .bio {
     line-height: 30px;
+    font-size: 0.75rem;
+
+    @media #{$small} {
+      font-size: inherit;
+    }
   }
 }
 </style>
