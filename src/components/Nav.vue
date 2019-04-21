@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <router-link class="home" to="/">
-      <span class="first">Ted</span> <span class="last">Tobin</span>
+      <img :src="require('@/assets/images/logo.png')"><span class="first">Ted</span> <span class="last">Tobin</span>
     </router-link>
     <div class="toggle" @click="toggleNav">
 			<div class="bar" :class="{ 'rotate': open }"></div>
@@ -78,6 +78,17 @@ export default {
     margin: 2rem 2.4rem;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    transform: translateY(2px);
+  }
+
   .first,
   .last {
     font-size: 1.5rem;
@@ -101,6 +112,10 @@ export default {
 	height: 30px;
 	z-index: $menu;
   margin: 1.5rem 1.5rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media #{$small} {
     margin: 2rem 2.4rem;

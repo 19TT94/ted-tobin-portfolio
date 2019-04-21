@@ -9,7 +9,7 @@
 
   	<div class="controls">
       <button class="prev" @click="prev"><font-awesome-icon icon="chevron-left" /></button>
-      <button class="open-work" @click="openProject(current)">Learn More</button>
+      <button class="open-work" @click="openProject(current)">View Work</button>
       <button class="next" @click="next"><font-awesome-icon icon="chevron-right" /></button>
     </div>
 
