@@ -153,7 +153,7 @@ export default {
 }
 
 .active {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 200;
   color: $white;
   opacity: 1;
