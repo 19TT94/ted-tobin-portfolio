@@ -17,7 +17,7 @@
       <a href="https://www.instagram.com/ttobin32/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
       <a href="https://www.linkedin.com/in/ted-tobin-7655406/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
     </div>
-    <div class="modal" :class="{ 'hide': !modal, 'remove': remove }">
+    <div class="modal" :class="{ 'hide': !modal, 'remove': remove }" v-if="currentPage === 'Home'">
       <span class="modal-text" :class="{ 'reveal': creative }">Creative Director.</span>
       <span class="modal-text" :class="{ 'reveal': writer }">Copywriter.</span>
       <span class="modal-text" :class="{ 'reveal': consultant }">Consultant.</span>
@@ -49,6 +49,7 @@ export default {
 
   data () {
     return {
+      currentPage: this.$router.currentRoute.name,
       open: false,
       modal: true,
       remove: false,
