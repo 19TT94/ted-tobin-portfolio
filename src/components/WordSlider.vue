@@ -46,14 +46,6 @@ export default {
   },
 
   mounted () {
-    // split words into letters
-    // for (var i = 0; i < this.quoteList.length; i++) {
-    //   this.quoteList[i] = this.quoteList[i].split(' ')
-    //   for (var j = 0; j < this.quoteList[i].length; j++) {
-    //     this.quoteList[i][j] = '<span class="word">' + this.quoteList[i][j] + '</span>'
-    //   }
-    // }
-
     this.scatter()
   },
 
@@ -121,6 +113,14 @@ export default {
 <style lang="scss" scoped>
 
 @import "@/assets/scss/app.scss"; // global styles
+
+.word-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 .word-wrapper {
   position: absolute;
