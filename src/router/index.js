@@ -21,7 +21,7 @@ export default new Router({
       component: About
     },
     {
-      path: '/copywriting',
+      path: '/copy',
       name: 'Copy Writing',
       component: Copy
     },
