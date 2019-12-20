@@ -8,14 +8,32 @@
       <div class="bar" :class="{ 'rotate': open }"></div>
     </div>
     <div class="menu" :class="{ 'reveal': open }">
-      <router-link class="item desktop" to="/" @click.native="toggleNav">Home</router-link>
-      <router-link class="item" to="/copywriting" @click.native="toggleNav">Copy</router-link>
-      <a class="item download" :href="require('@/assets/images/scripts-samples.pdf')" download>Scripts</a>
-      <router-link class="item" to="/about" @click.native="toggleNav">About</router-link>
-      <a class="phone item" href="tel:323-497-1947"><font-awesome-icon :icon="['fas', 'phone']" /><span class="phone">(323) 497-1947</span></a>
-      <a class="item" href="mailto:ted.tobin@gmail.com"><font-awesome-icon :icon="['fas', 'envelope']" /></a>
-      <a href="https://www.instagram.com/ttobin32/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
-      <a href="https://www.linkedin.com/in/ted-tobin-7655406/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
+      <router-link class="item desktop" to="/" @click.native="toggleNav">
+        Home
+      </router-link>
+      <router-link class="item" to="/about" @click.native="toggleNav">
+        About
+      </router-link>
+      <router-link class="item" to="/copywriting" @click.native="toggleNav">
+        Copy
+      </router-link>
+      <a class="item download" :href="require('@/assets/images/scripts-samples.pdf')" download>
+        Scripts
+      </a>
+      <a class="phone item" href="tel:323-497-1947"><font-awesome-icon :icon="['fas', 'phone']" />
+        <span class="phone">
+          (323) 497-1947
+        </span>
+      </a>
+      <a class="item" href="mailto:ted.tobin@gmail.com">
+        <font-awesome-icon :icon="['fas', 'envelope']" />
+      </a>
+      <a href="https://www.instagram.com/ttobin32/" target="_blank">
+        <font-awesome-icon class="item" :icon="['fab', 'instagram']" />
+      </a>
+      <a href="https://www.linkedin.com/in/ted-tobin-7655406/" target="_blank">
+        <font-awesome-icon class="item" :icon="['fab', 'linkedin']" />
+      </a>
     </div>
     <div class="modal" :class="{ 'hide': !modal, 'remove': remove }" v-if="currentPage === 'Home'">
       <span class="modal-text" :class="{ 'reveal': creative }">Creative Director.</span>

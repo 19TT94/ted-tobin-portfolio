@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    test
+    <h1 class="title">Ted Tobin Creative</h1>
   </div>
 </template>
 
@@ -12,5 +12,11 @@ export default {
 </script>
 
 <style>
+  #home {
+    margin-top: 80px;
 
+    .title {
+      padding: 20px;
+    }
+  }
 </style>
