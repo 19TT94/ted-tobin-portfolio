@@ -1,6 +1,10 @@
 <template>
   <div id="about">
 
+    <div id="slider">
+      <slider :quotes="quotes" />
+    </div>
+
     <h2>Creative Director. Copywriter. Consultant.</h2>
 
     <p class="bio">
@@ -11,8 +15,27 @@
 </template>
 
 <script>
-export default {
+import slider from '@/components/WordSlider'
 
+export default {
+  components: {
+    slider
+  },
+
+  data () {
+    return {
+      quotes: [
+        'Every generation has a story',
+        'Don’t let anyone spoil this.',
+        'Hero…Legend…King',
+        'Anyone can save the galaxy ... once.',
+        'Question reality. Change your destiny.',
+        'New model original parts',
+        'Bring the adventure…to life',
+        'A whole new kind of animal'
+      ]
+    }
+  }
 }
 </script>
 
@@ -26,6 +49,12 @@ export default {
   background: $black;
   min-height: 100%;
   @include flexbox(column, nowrap, center, center);
+
+  #slider {
+    position: relative;
+    width: 100%;
+    height: 250px;
+  }
 
   h2 {
     color: $blue;

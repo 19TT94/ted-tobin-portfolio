@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home'
 import About from '@/views/About'
-// import Scripts from '@/views/Scripts'
+import Copy from '@/views/Copy'
 import NotFound from '@/views/NotFound'
 
 Vue.use(Router)
@@ -20,11 +20,11 @@ export default new Router({
       name: 'About',
       component: About
     },
-    // {
-    //   path: '/scripts',
-    //   name: 'Scripts',
-    //   component: Scripts
-    // },
+    {
+      path: '/copywriting',
+      name: 'Copy Writing',
+      component: Copy
+    },
     {
       // will match everything
       path: '*',
