@@ -155,7 +155,7 @@ export default {
 .active {
   font-size: 16px;
   font-weight: 200;
-  color: $white;
+  color: $yellow;
   opacity: 1;
   filter: blur(0);
   transition: all ease 0.5s;
@@ -176,7 +176,7 @@ export default {
   @include flexbox(row, wrap, space-between, center);
 
   .prev {
-    color: $orange;
+    color: $yellow;
   }
 
   .open-work {
@@ -185,12 +185,12 @@ export default {
     transition: all ease 0.5s;
 
     &:hover {
-      color: $orange;
+      color: $yellow;
     }
   }
 
   .next {
-    color: $orange;
+    color: $yellow;
   }
 }
 
