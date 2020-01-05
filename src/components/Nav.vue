@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <router-link class="home" to="/">
-      <img :src="require('@/assets/images/logo.png')"><span class="first">Ted</span> <span class="last">Tobin</span>
+      <img :src="require('@/assets/images/ttcreative.svg')">
     </router-link>
     <div class="toggle" @click="toggleNav">
       <div class="bar" :class="{ 'rotate': open }"></div>
@@ -14,7 +14,7 @@
       <router-link class="item" to="/about" @click.native="toggleNav">
         About
       </router-link>
-      <router-link class="item" to="/copywriting" @click.native="toggleNav">
+      <router-link class="item" to="/copy" @click.native="toggleNav">
         Copy
       </router-link>
       <a class="item download" :href="require('@/assets/images/scripts-samples.pdf')" download>
@@ -97,7 +97,7 @@ export default {
   z-index: $front;
 
   @media #{$small} {
-    margin: 2rem 2.4rem;
+    margin: 1rem 0;
   }
 
   &:hover {
@@ -105,24 +105,10 @@ export default {
   }
 
   img {
-    width: 20px;
-    height: 20px;
-    padding: 0 5px;
+    width: 80px;
+    height: 80px;
+    padding: 0;
     transform: translateY(2px);
-  }
-
-  .first,
-  .last {
-    font-size: 1.5rem;
-    font-weight: 300;
-  }
-
-  .first {
-    color: $orange;
-  }
-
-  .last {
-    color: $blue;
   }
 }
 
@@ -146,7 +132,7 @@ export default {
   .bar {
     width: 100%;
     height: 2px;
-    background: $orange;
+    background: $blue;
     margin-top: 6px;
     transition: all ease-in-out 0.5s;
   }
@@ -225,10 +211,12 @@ export default {
   transform: rotate(45deg);
 
   &:first-child {
+    background: $yellow;
     transform: rotate(45deg) translateX(6px);
   }
 
   &:last-child {
+    background: $yellow;
     transform: rotate(-45deg) translateX(6px);
   }
 }
