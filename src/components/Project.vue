@@ -2,11 +2,11 @@
   <div class="project" :class="{'open': open}">
     <h1>{{work[currentProject].title}}</h1>
     <img :src="work[currentProject].poster">
-    <!-- <button class="close" @click="closeProject">
+    <button class="close" @click="closeProject">
       <div class="toggle">
         <div class="bar rotate"></div>
         <div class="bar rotate"></div>
-      </div> -->
+      </div>
     </button>
   </div>
 </template>
@@ -18,10 +18,6 @@ export default {
   props: {
     current: Number,
     open: Boolean
-  },
-
-  mounted() {
-    this.open = true;
   },
 
   computed: {
@@ -111,7 +107,7 @@ export default {
   left: 0;
   width: 100vw;
   height: 50vh;
-  // background: $black;
+  background: $black;
   z-index: $back;
   opacity: 0;
   text-align: center;
