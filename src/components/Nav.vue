@@ -109,6 +109,7 @@ export default {
     height: 80px;
     padding: 0;
     transform: translateY(2px);
+    filter: drop-shadow( 10px 10px 10px rgba(0,0,0,0.2) );
   }
 }
 
