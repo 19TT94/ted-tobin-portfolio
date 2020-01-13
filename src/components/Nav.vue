@@ -35,11 +35,6 @@
         <font-awesome-icon class="item" :icon="['fab', 'linkedin']" />
       </a>
     </div>
-    <div class="modal" :class="{ 'hide': !modal, 'remove': remove }" v-if="currentPage === 'Home'">
-      <span class="modal-text" :class="{ 'reveal': creative }">Creative Director.</span>
-      <span class="modal-text" :class="{ 'reveal': writer }">Copywriter.</span>
-      <span class="modal-text" :class="{ 'reveal': consultant }">Consultant.</span>
-   </div>
   </div>
 </template>
 
@@ -47,33 +42,10 @@
 export default {
   name: 'Nav',
 
-  mounted () {
-    setTimeout(() => {
-      this.creative = true
-      setTimeout(() => {
-        this.writer = true
-        setTimeout(() => {
-          this.consultant = true
-          setTimeout(() => {
-            this.modal = false
-            setTimeout(() => {
-              this.remove = true
-            }, 1000)
-          }, 2000)
-        }, 1000)
-      }, 1000)
-    }, 1000)
-  },
-
   data () {
     return {
       currentPage: this.$router.currentRoute.name,
-      open: false,
-      modal: true,
-      remove: false,
-      creative: false,
-      writer: false,
-      consultant: false
+      open: false
     }
   },
 
@@ -163,7 +135,7 @@ export default {
 
   .item {
     font-family: $font;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1.2rem;
     color: $blue;
     padding: 1rem;
@@ -172,31 +144,6 @@ export default {
       padding: 0 1rem;
     }
   }
-}
-
-.modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: $menu;
-  background: $black;
-  transition: all ease 1s;
-  @include flexbox(column, nowrap, center, center);
-
-  &-text {
-    color: $blue;
-    opacity: 0;
-    padding: 1rem;
-    font-size: 1.5rem;
-    visibility: visible;
-  }
-}
-
-.reveal {
-  opacity: 1;
-  visibility: visible;
 }
 
 .hide {
@@ -212,12 +159,12 @@ export default {
   transform: rotate(45deg);
 
   &:first-child {
-    background: $yellow;
+    background: $blue;
     transform: rotate(45deg) translateX(6px);
   }
 
   &:last-child {
-    background: $yellow;
+    background: $blue;
     transform: rotate(-45deg) translateX(6px);
   }
 }
