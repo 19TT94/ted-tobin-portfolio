@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Fredericka+the+Great|Italiana&display=swap');
+
+$title-font: 'Abril Fatface', cursive;
+$font: 'Avenir Next Condensed';
+
+.special {
+  font-family: $font;
+  font-weight: 600;
+}
+
+// Layers
+$menu: 3;
+$front: 2;
+$default: 1;
+$base: 0;
+$back: -1;
