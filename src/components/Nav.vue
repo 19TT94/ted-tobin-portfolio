@@ -65,7 +65,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 1.5rem 1.5rem;
+  margin: 1.5rem 0;
   z-index: $front;
 
   @media #{$small} {
