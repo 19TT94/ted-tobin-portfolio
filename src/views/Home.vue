@@ -115,7 +115,7 @@ export default {
       .wrapper {
         position: relative;
         width: 80%;
-        height: 25%;
+        height: 30%;
         overflow: hidden;
 
         @media #{$small} {
