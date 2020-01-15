@@ -15,10 +15,7 @@
 
     <div class="video-container" :class="{ hide : through }">
       <div class="wrapper">
-        <video width="320" height="540" controls autoplay>
-          <source :src="require('@/assets/video/ad.mp4')" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/5CYbEEebcL0?rel=0&showinfo=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <button @click="go()">Through to <em>Ted Tobin Creative</em>.</button>
    </div>
@@ -149,9 +146,10 @@ export default {
 
       .wrapper {
         width: 80%;
-        height: 70%;
+        height: 60%;
+        max-width: 800px;
 
-        video {
+        iframe {
           width: 100%;
           height: 100%;
         }
