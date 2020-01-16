@@ -102,11 +102,11 @@ export default {
 @import "@/assets/scss/app.scss"; // global styles
 
 .project {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  bottom: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 50vh;
   background: $black;
   z-index: $back;
   opacity: 0;

@@ -1,4 +1,7 @@
-$font: 'Work Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Fredericka+the+Great|Italiana&display=swap');
+
+$title-font: 'Abril Fatface', cursive;
+$font: 'Avenir Next Condensed';
 
 .special {
   font-family: $font;
@@ -11,5 +14,3 @@ $front: 2;
 $default: 1;
 $base: 0;
 $back: -1;
-
-// Actions

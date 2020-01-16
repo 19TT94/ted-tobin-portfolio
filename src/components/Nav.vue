@@ -1,27 +1,40 @@
 <template>
   <div id="nav">
     <router-link class="home" to="/">
-      <img :src="require('@/assets/images/logo.png')"><span class="first">Ted</span> <span class="last">Tobin</span>
+      <img :src="require('@/assets/images/ttcreative.svg')">
     </router-link>
     <div class="toggle" @click="toggleNav">
       <div class="bar" :class="{ 'rotate': open }"></div>
       <div class="bar" :class="{ 'rotate': open }"></div>
     </div>
     <div class="menu" :class="{ 'reveal': open }">
-      <router-link class="item desktop" to="/" @click.native="toggleNav">Home</router-link>
-      <!-- <router-link class="item" to="/scripts" @click.native="toggleNav">Scripts</router-link> -->
-      <a class="item download" :href="require('@/assets/images/scripts-samples.pdf')" download>Scripts</a>
-      <router-link class="item" to="/about" @click.native="toggleNav">About</router-link>
-      <a class="phone item" href="tel:323-497-1947"><font-awesome-icon :icon="['fas', 'phone']" /><span class="phone">(323) 497-1947</span></a>
-      <a class="item" href="mailto:ted.tobin@gmail.com"><font-awesome-icon :icon="['fas', 'envelope']" /></a>
-      <a href="https://www.instagram.com/ttobin32/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'instagram']" /></a>
-      <a href="https://www.linkedin.com/in/ted-tobin-7655406/" target="_blank"><font-awesome-icon class="item" :icon="['fab', 'linkedin']" /></a>
+      <router-link class="item desktop" to="/" @click.native="toggleNav">
+        Home
+      </router-link>
+      <router-link class="item" to="/about" @click.native="toggleNav">
+        About
+      </router-link>
+      <router-link class="item" to="/copy" @click.native="toggleNav">
+        Copy
+      </router-link>
+      <a class="item download" :href="require('@/assets/images/scripts-samples.pdf')" download>
+        Scripts
+      </a>
+      <a class="phone item" href="tel:323-497-1947"><font-awesome-icon :icon="['fas', 'phone']" />
+        <span class="phone">
+          (323) 497-1947
+        </span>
+      </a>
+      <a class="item" href="mailto:ted.tobin@gmail.com">
+        <font-awesome-icon :icon="['fas', 'envelope']" />
+      </a>
+      <a href="https://www.instagram.com/ttobin32/" target="_blank">
+        <font-awesome-icon class="item" :icon="['fab', 'instagram']" />
+      </a>
+      <a href="https://www.linkedin.com/in/ted-tobin-7655406/" target="_blank">
+        <font-awesome-icon class="item" :icon="['fab', 'linkedin']" />
+      </a>
     </div>
-    <div class="modal" :class="{ 'hide': !modal, 'remove': remove }" v-if="currentPage === 'Home'">
-      <span class="modal-text" :class="{ 'reveal': creative }">Creative Director.</span>
-      <span class="modal-text" :class="{ 'reveal': writer }">Copywriter.</span>
-      <span class="modal-text" :class="{ 'reveal': consultant }">Consultant.</span>
-   </div>
   </div>
 </template>
 
@@ -29,33 +42,10 @@
 export default {
   name: 'Nav',
 
-  mounted () {
-    setTimeout(() => {
-      this.creative = true
-      setTimeout(() => {
-        this.writer = true
-        setTimeout(() => {
-          this.consultant = true
-          setTimeout(() => {
-            this.modal = false
-            setTimeout(() => {
-              this.remove = true
-            }, 1000)
-          }, 2000)
-        }, 1000)
-      }, 1000)
-    }, 1000)
-  },
-
   data () {
     return {
       currentPage: this.$router.currentRoute.name,
-      open: false,
-      modal: true,
-      remove: false,
-      creative: false,
-      writer: false,
-      consultant: false
+      open: false
     }
   },
 
@@ -75,11 +65,11 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 1.5rem 1.5rem;
+  margin: 1.5rem 0;
   z-index: $front;
 
   @media #{$small} {
-    margin: 2rem 2.4rem;
+    margin: 1rem 0;
   }
 
   &:hover {
@@ -87,24 +77,11 @@ export default {
   }
 
   img {
-    width: 20px;
-    height: 20px;
-    padding: 0 5px;
+    width: 80px;
+    height: 80px;
+    padding: 0;
     transform: translateY(2px);
-  }
-
-  .first,
-  .last {
-    font-size: 1.5rem;
-    font-weight: 300;
-  }
-
-  .first {
-    color: $orange;
-  }
-
-  .last {
-    color: $blue;
+    filter: drop-shadow( 10px 10px 10px rgba(0,0,0,0.2) );
   }
 }
 
@@ -128,7 +105,7 @@ export default {
   .bar {
     width: 100%;
     height: 2px;
-    background: $orange;
+    background: $blue;
     margin-top: 6px;
     transition: all ease-in-out 0.5s;
   }
@@ -158,7 +135,7 @@ export default {
 
   .item {
     font-family: $font;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1.2rem;
     color: $blue;
     padding: 1rem;
@@ -167,31 +144,6 @@ export default {
       padding: 0 1rem;
     }
   }
-}
-
-.modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: $menu;
-  background: $black;
-  transition: all ease 1s;
-  @include flexbox(column, nowrap, center, center);
-
-  &-text {
-    color: $blue;
-    opacity: 0;
-    padding: 1rem;
-    font-size: 1.5rem;
-    visibility: visible;
-  }
-}
-
-.reveal {
-  opacity: 1;
-  visibility: visible;
 }
 
 .hide {
@@ -207,10 +159,12 @@ export default {
   transform: rotate(45deg);
 
   &:first-child {
+    background: $blue;
     transform: rotate(45deg) translateX(6px);
   }
 
   &:last-child {
+    background: $blue;
     transform: rotate(-45deg) translateX(6px);
   }
 }
@@ -244,6 +198,11 @@ export default {
     font-size: 14px;
     transition: all ease 0.5s;
   }
+}
+
+.reveal {
+  opacity: 1;
+  visibility: visible;
 }
 
 </style>
