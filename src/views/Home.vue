@@ -147,7 +147,7 @@ export default {
       .wrapper {
         width: 80%;
         height: 60%;
-        max-width: 800px;
+        max-width: 715px;
 
         iframe {
           width: 100%;

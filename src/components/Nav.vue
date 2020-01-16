@@ -25,10 +25,10 @@
           (323) 497-1947
         </span>
       </a>
-      <a class="item" href="mailto:ted.tobin@gmail.com">
+      <a class="item" href="mailto:tedtobincreative@gmail.com">
         <font-awesome-icon :icon="['fas', 'envelope']" />
       </a>
-      <a href="https://www.instagram.com/ttobin32/" target="_blank">
+      <a href="https://www.instagram.com/tedtobincreative/" target="_blank">
         <font-awesome-icon class="item" :icon="['fab', 'instagram']" />
       </a>
       <a href="https://www.linkedin.com/in/ted-tobin-7655406/" target="_blank">
