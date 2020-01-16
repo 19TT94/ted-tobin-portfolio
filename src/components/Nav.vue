@@ -200,4 +200,9 @@ export default {
   }
 }
 
+.reveal {
+  opacity: 1;
+  visibility: visible;
+}
+
 </style>
