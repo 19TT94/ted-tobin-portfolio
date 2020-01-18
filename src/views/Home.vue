@@ -15,7 +15,7 @@
 
     <div class="video-container" :class="{ hide : through }">
       <div class="wrapper">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/5CYbEEebcL0?rel=0&showinfo=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <youtube id="5CYbEEebcL0" @player="setPlayer($event)"></youtube>
       </div>
       <button @click="go()">Through to <em>Ted Tobin Creative</em>.</button>
    </div>
@@ -24,16 +24,29 @@
 
 <script>
 
+import youtube from '@/components/Youtube.vue'
+
 export default {
+
+  components: {
+    youtube
+  },
+
   data () {
     return {
-      through: false
+      through: false,
+      player: null
     }
   },
 
   methods: {
+    setPlayer(player) {
+      this.player = player
+      this.player.playVideo();
+    },
     go () {
       this.through = true
+      this.player.pauseVideo();
     }
   }
 }
