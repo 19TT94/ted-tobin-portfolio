@@ -5,20 +5,22 @@
       <hr class="line"/>
       <h4><span class="red">Ted Tobin Creative</span> online and offline marketing&nbsp;consultant.</h4>
     </div>
-    <div class="bar">
+    <!-- <div class="bar">
       <div class="wrapper">
         <div class="text">
-          This site is just a teaser. Full site is coming soon!
+          <span>Creative Director</span>&nbsp;
+          <span>Copywriter</span>&nbsp;
+          <span>Consultant</span>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="video-container" :class="{ hide : through }">
+    <!-- <div class="video-container" :class="{ hide : through }">
       <div class="wrapper">
         <youtube id="5CYbEEebcL0" @player="setPlayer($event)"></youtube>
       </div>
       <button @click="go()">Through to <em>Ted Tobin Creative</em>.</button>
-   </div>
+   </div> -->
   </div>
 </template>
 
@@ -139,7 +141,11 @@ export default {
           position: absolute;
           width: 265%;
           left: 0;
-          animation: scroll 20s infinite linear;
+          animation: scroll 15s infinite linear;
+
+          span {
+            margin-right: 200px;
+          }
         }
       }
     }
